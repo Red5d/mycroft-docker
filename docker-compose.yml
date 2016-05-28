@@ -1,0 +1,21 @@
+# docker run -it --name mycroft --privileged --device /dev/snd -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v \
+# /dev/dri:/dev/dri -v /dev/shm:/dev/shm -v /etc/machine-id:/etc/machine-id -v /run/dbus:/run/dbus \
+# --ulimit rtprio=95 --ulimit memlock=-1 mycroft:latest
+
+mycroft:
+  image: mycroft:latest
+  privileged: true
+  devices:
+    - "/dev/snd:/dev/snd"
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - /dev/dri:/dev/dri
+    - /dev/shm:/dev/shm
+    - /etc/machine-id:/etc/machine-id
+    - /run/dbus:/run/dbus
+  environment:
+    - DISPLAY=unix$DISPLAY
+  ulimits:
+    rtprio: 95
+    memlock: -1
+
