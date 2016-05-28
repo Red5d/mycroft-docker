@@ -10,9 +10,11 @@ little over 2GB. I'm going to work on switching it to an alpine base to reduce t
 
 # Usage
 Build the docker image:
+
     docker build -t mycroft .
 
 Then run it with docker-compose:
+
     docker-compose up -d
 
 ...or the command in the top of the docker-compose.yml file.
